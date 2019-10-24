@@ -11,16 +11,23 @@
 <body>
     
     <div class="js-app">
-        <div class="js-menu"></div>
+        <div class="js-menu">h</div>
         <div class="js-form"></div>
     </div>
     
 
 
     <!--Скрипты-->
+    <script src="components/menu/menu.pug.js"></script>
     <script src="components/menu/menu.js"></script>
     <script src="components/form/form.js"></script>
     <script src="components/app/app.js"></script>
+
+    <script>
+        'use strict';
+        new window.App({el: document.querySelector('.js-app')});
+
+    </script>
 
 
 </body>
