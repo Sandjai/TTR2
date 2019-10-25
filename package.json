@@ -8,7 +8,6 @@
     "lint": "./node_modules/.bin/eslint components/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pug": "pug components/menu/menu.pug --client --extension=pug.js --name=menuTmpl"
-
   },
   "repository": {
     "type": "git",
@@ -22,6 +21,7 @@
   "homepage": "https://github.com/Sandjai/TTR2#readme",
   "devDependencies": {
     "eslint": "^6.5.1",
-    "node-static": "^0.7.11"
+    "node-static": "^0.7.11",
+    "pug": "^2.0.4"
   }
 }

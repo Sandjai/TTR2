@@ -1,27 +1,51 @@
 (function() {
     'use strict';
-    const tmpl = windows.menuTmpl;
+    const tmpl = window.menuTmpl;
+    
 
 
     class Menu {
         constructor(opts) {
             this.el = opts.el;
-            this.data = opts.data;
-            this.onPick = opts.onPick;
-            this._initEvents();
+            this.data = opts.data;  
+            
+            /*this._initEvents();*/
+            
 
         }
+
+      
 
         _initEvents() {
             this.el.addEventListener("click", this.removeItem.bind(this));              
             
         }
 
-        setData() {
+        /**
+         * @param {object} data
+         */
 
+        setData(data) {
+            
+             
+            this.data = data;       
+            
+            
+            this.render(data.title, this.renderItems(data.items));
         }
 
-        addItem() {
+        renderItems(items) {
+
+
+            
+            return items;
+        }
+
+        
+
+        _addItem() {
+            this.data = opts.data;
+            this.render();
             
 
         }
@@ -30,10 +54,19 @@
 
         }
 
-        render() {
-            this.el = tmpl(this.data);
+        render(title, items) {
+            
+            /*this.el.innerHTML = tmpl({data: this.data});*/
+            this.el.innerHTML = tmpl({title: title, items: items});
+
+                        
         }
 
 
     }
-})()
+
+
+
+    //export
+    window.Menu = Menu;
+})();
