@@ -1,7 +1,26 @@
-span.menu_title.menu-heading=title
-    ul
-        each val in items
-            li=val.title
-            
+-var fldr = 1;
+mixin addItem(item, index, fldr)
+    li.menu-item(data-index=index)= item
+        i.add(data-action='add')
+        i.close(data-action='remove')
+
+mixin forEachItem(items)
+        
+    
+        each val, index in items
+                if !val.items
+                    +addItem(val.title, index, fldr)
+                else
+                    
+                    +addItem(val.title, index, fldr)
+                    
+                    ul.menu-list(data-index=fldr)
+                        -fldr=++fldr;
+                        +forEachItem(val.items) 
 
 
+
+span.menu_title.menu-heading=title    
+ul.menu-list(data-index=0)
+    +forEachItem(items)
+        
