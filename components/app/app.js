@@ -10,7 +10,7 @@
             })
 
 
-        
+           
         menu.setData({
                 title: "Категория 1",
                 items: [
@@ -23,15 +23,23 @@
                 ]
             })
 
-
+            
             let form = new window.Form ({
                 el: el.querySelector('.js-form'), 
                 data: {}
             })
 
-            form.addEventListener("save", function() {
-                this.menu.addItem(event.detail);
+            
+
+            form.render();
+            
+            
+
+            form.addEventListener("save", function(event) {
+                menu.addItem(event.detail.title);
             })
+
+            
 
             
 

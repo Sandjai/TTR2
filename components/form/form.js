@@ -1,4 +1,6 @@
 (function() {
+    'use strict';
+    const tmpl = window.formTmpl;
 
     class Form {
         constructor(opts) {
@@ -14,13 +16,13 @@
         }
 
         _onSubmit(event) {
-
+            
             event.preventDefault();
             this.trigger('save', {
                 title: this.el.querySelector('input[name="title"]').value,
             });
             event.target.reset();
-
+            
         }
 
                 /**
@@ -36,10 +38,19 @@
 
         trigger(eventName, eventData) {
             let event = new CustomEvent(eventName, {
-                detail: eventData
+                detail: eventData                
             });
+            
             this.el.dispatchEvent(event);
         }
+
+        render() {
+            
+           this.el.innerHTML = tmpl();
+
+                        
+        }
+
     }
 
     // export

@@ -1,7 +1,6 @@
 -var fldr = 1;
 mixin addItem(item, index, fldr)
     li.menu-item(data-index=index)= item
-        i.add(data-action='add')
         i.close(data-action='remove')
 
 mixin forEachItem(items)

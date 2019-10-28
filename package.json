@@ -7,7 +7,8 @@
     "server": "./node_modules/.bin/static .",
     "lint": "./node_modules/.bin/eslint components/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pug": "pug components/menu/menu.pug --client --extension=pug.js --name=menuTmpl"
+    "pug": "pug components/menu/menu.pug --client --extension=pug.js --name=menuTmpl",
+    "pugF": "pug components/form/form.pug --client --extension=pug.js --name=formTmpl"
   },
   "repository": {
     "type": "git",

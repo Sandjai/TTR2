@@ -39,9 +39,6 @@
         this._onRemoveClick(item);
         break;
 
-        case 'add':
-        this._addItem(item);
-        break;
 
         case 'pick':
         this._onPickClick(item);
@@ -108,7 +105,6 @@
 
         render(title, items) {
             
-            /*this.el.innerHTML = tmpl({data: this.data});*/
             this.el.innerHTML = tmpl({title: title, items: items});
 
                         
@@ -116,12 +112,13 @@
 
 
 
-        _addItem() {
+        addItem(title) {
 
-            this.data.items.push({title: "ok"});
+            
+            this.data.items.push({title: title});
            
             this.render(this.data.title, this.data.items);
-            alert(this.data.items.length);
+            
         }
         
 
