@@ -1,8 +1,7 @@
-(function() {
-    'use strict';
+
     const tmpl = window.formTmpl;
 
-    class Form {
+    export class Form {
         constructor(opts) {
             this.el = opts.el;
             this.data = opts.data;
@@ -53,7 +52,5 @@
 
     }
 
-    // export
-    window.Form = Form;
 
-})()
+

@@ -1,10 +1,14 @@
-(function() {
+
     'use strict';
-    
+
+    import {Menu} from "./../menu/menu";
+    import {Form} from "./../form/form";
+
+
 
     class App {
         constructor({el}) {
-            let menu = new window.Menu ({
+            let menu = new Menu ({
                 el: el.querySelector('.js-menu'), 
                 data: {}
             })
@@ -24,7 +28,7 @@
             })
 
             
-            let form = new window.Form ({
+            let form = new Form ({
                 el: el.querySelector('.js-form'), 
                 data: {}
             })
@@ -47,9 +51,7 @@
     }
 
 
-
-
-//export
 window.App = App;
 
-})()
+
+

@@ -1,11 +1,10 @@
-(function() {
-    'use strict';
+
     const tmpl = window.menuTmpl;
 
 
 
 
-    class Menu {
+    export class Menu {
         constructor(opts) {
             this.el = opts.el;
             this.data = opts.data;
@@ -133,8 +132,3 @@
 
     
 
-
-
-    //export
-    window.Menu = Menu;
-})();

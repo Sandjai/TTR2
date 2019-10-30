@@ -8,7 +8,8 @@
     "lint": "./node_modules/.bin/eslint components/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pug": "pug components/menu/menu.pug --client --extension=pug.js --name=menuTmpl",
-    "pugF": "pug components/form/form.pug --client --extension=pug.js --name=formTmpl"
+    "pugF": "pug components/form/form.pug --client --extension=pug.js --name=formTmpl",
+    "build": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,13 @@
   },
   "homepage": "https://github.com/Sandjai/TTR2#readme",
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
     "eslint": "^6.5.1",
     "node-static": "^0.7.11",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
   }
 }
