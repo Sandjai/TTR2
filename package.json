@@ -7,8 +7,6 @@
     "server": "./node_modules/.bin/static .",
     "lint": "./node_modules/.bin/eslint components/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pug": "pug components/menu/menu.pug --client --extension=pug.js --name=menuTmpl",
-    "pugF": "pug components/form/form.pug --client --extension=pug.js --name=formTmpl",
     "build": "./node_modules/.bin/webpack"
   },
   "repository": {
@@ -28,7 +26,9 @@
     "eslint": "^6.5.1",
     "node-static": "^0.7.11",
     "pug": "^2.0.4",
+    "pug-loader": "^2.4.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,5 +1,6 @@
 
-    const tmpl = window.menuTmpl;
+    import tmpl from "./menu.pug"
+    
 
 
 

@@ -1,5 +1,6 @@
 
-    const tmpl = window.formTmpl;
+    
+    import template from "./form.pug";
 
     export class Form {
         constructor(opts) {
@@ -45,7 +46,7 @@
 
         render() {
             
-           this.el.innerHTML = tmpl();
+           this.el.innerHTML = template();
 
                         
         }
