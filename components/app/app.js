@@ -40,7 +40,7 @@
             
 
             form.addEventListener("save", function(event) {
-                menu.addItem(event.detail.title);
+                menu.addItem(event.detail);
             })
 
             

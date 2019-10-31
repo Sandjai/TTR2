@@ -1,0 +1,4 @@
+mixin addItem(item, index)
+    li.menu-item(data-index=index)=item.title
+        i.close(data-action='remove')
++addItem(item, index)

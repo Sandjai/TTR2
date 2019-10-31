@@ -1,25 +1,12 @@
--var fldr = 1;
-mixin addItem(item, index, fldr)
-    li.menu-item(data-index=index)= item
-        i.close(data-action='remove')
-
-mixin forEachItem(items)
-        
-    
-        each val, index in items
-                if !val.items
-                    +addItem(val.title, index, fldr)
-                else
-                    
-                    +addItem(val.title, index, fldr)
-                    
-                    ul.menu-list(data-index=fldr)
-                        -fldr=++fldr;
-                        +forEachItem(val.items) 
-
-
-
 span.menu_title.menu-heading=title    
-ul.menu-list(data-index=0)
-    +forEachItem(items)
+ul.menu-list
+    each item, index in items
+        include __item/menu__item.pug
+        
+        
+
+
+
+
+
         

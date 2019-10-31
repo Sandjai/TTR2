@@ -1,8 +1,20 @@
 
+    
+    import tmplItem from "./__item/menu__item.pug";    
     import tmpl from "./menu.pug"
+    
     
 
 
+/**
+ * @typedef {Item} Тип элемента меню
+ * @prop {string} href URL
+ * @prop {string} anchor текст
+ */
+
+/**
+ * Компонента "Меню"
+ */
 
 
     export class Menu {
@@ -86,6 +98,11 @@
         }
 
 
+        get listEl() {
+            return this.el.querySelector('.menu-list');
+        }
+
+
 
 
         removeItem(removedItem) {
@@ -100,26 +117,56 @@
             
         }
     
+        /**
+         * 
+         * @param {String} title 
+         * @param {Array} items 
+         */
 
 
-
-        render(title, items) {
-            
-            this.el.innerHTML = tmpl({title: title, items: items});
-
-                        
+        render(title, items) {            
+            this.el.innerHTML = tmpl({title, items});                        
         }
 
 
+        /**
+         * 
+         * @param {Object} title 
+         */
 
-        addItem(title) {
 
-            
-            this.data.items.push({title: title});
-           
-            this.render(this.data.title, this.data.items);
-            
+        addItem(item) {
+            let el = document.createElement("div");            
+            el.innerHTML = this.liItemHtml(item, this.data.items.length);
+            el = el.firstElementChild;
+            this.listEl.append(el);
+            el.addEventListener("animationend", ()=> {
+                el.classList.remove('bounce-in-left');                
+            });
+            el.classList.add("bounce-in-left");
+            this.data.items.push(item);
         }
+
+        /**
+         * 
+         * @param {Object} item 
+         * @param {number} index 
+         */
+
+
+        /*liItemHtml(item, index) {
+
+            return tmplItem({item, index});
+
+        }
+        */
+
+       liItemHtml(item, index) {
+
+        return tmplItem({item, index});
+
+    }
+
         
 
         
