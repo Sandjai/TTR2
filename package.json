@@ -7,7 +7,7 @@
     "server": "./node_modules/.bin/static .",
     "lint": "./node_modules/.bin/eslint components/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/webpack"
+    "build": "./node_modules/.bin/webpack -w"
   },
   "repository": {
     "type": "git",
@@ -30,5 +30,7 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
   },
-  "dependencies": {}
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
 }

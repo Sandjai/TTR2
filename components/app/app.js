@@ -8,24 +8,17 @@
 
     class App {
         constructor({el}) {
-            let menu = new Menu ({
+            this.menu = new Menu ({
                 el: el.querySelector('.js-menu'), 
                 data: {}
             })
 
 
-           
-        menu.setData({
-                title: "Категория 1",
-                items: [
-                    {title: "Product 1"},
-                    {title: "Product 2"},
-                    {title: "Product 3"},               
-                    {title: "Product 4"},
-                    {title: "Product 5"},
-                    {title: "Product 6"}
-                ]
-            })
+       
+    
+            this.loadData();
+     
+        //menu.setData(data);
 
             
             let form = new Form ({
@@ -39,15 +32,61 @@
             
             
 
-            form.addEventListener("save", function(event) {
-                menu.addItem(event.detail);
-            })
-
-            
+            form.addEventListener("save", (event) => {
+                this.menu.addItem(event.detail);
+                this.uploadData();
+            })       
 
             
 
         }
+
+
+        
+            /** 
+             * Load Data from server
+            */
+
+           loadData() {
+            const url = 'https://components-2130.firebaseio.com/menu/-M-Bg4b7mtRo6BO8FiSA.json';
+            
+            const xhr = new XMLHttpRequest();
+
+            
+
+            xhr.addEventListener("readystatechange", (event) => {
+                if (xhr.readyState === 4) {
+                    if (xhr.status !== 200) {
+                        console.error('Сетевая ошибка', xhr);
+                    } else {
+                        const resp = xhr.responseText;
+                        this.menu.setData(JSON.parse(resp));
+                    }
+
+                }
+               
+            });
+
+            xhr.open('GET', url, true);
+            xhr.send();
+        }
+
+        /**
+         * Upload data to server
+         */
+
+
+         uploadData () {
+             const url = 'https://components-2130.firebaseio.com/menu/-M-Bg4b7mtRo6BO8FiSA.json';
+             const xhr = new XMLHttpRequest();
+
+             xhr.open('PUT', url, true);
+             xhr.onload = (event) => {
+                 console.log('DONE');
+             };
+
+             xhr.send(JSON.stringify(this.menu.data));
+         }
     }
 
 
