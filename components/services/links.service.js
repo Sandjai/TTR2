@@ -17,9 +17,17 @@ export class LinksService {
         const xhr = new XMLHttpRequest();
         xhr.open(type, url, true);
 
-        xhr.onload = () => {
-            callback(JSON.parse(xhr.responseText));
-        };
+        xhr.addEventListener("readystatechange", () => {
+            if (xhr.readyState === 4) {
+                if (xhr.status !== 200) {
+                    console.error('Сетевая ошибка', xhr);
+                } else {
+                    callback(JSON.parse(xhr.responseText));
+                }
+    
+            }
+           
+        });
 
         if (typeof data !== 'undefined') {
             data = JSON.stringify(data);
@@ -27,6 +35,10 @@ export class LinksService {
 
         xhr.send(data);
     }
+
+
+
+  
 
     /** 
      * Get collection
