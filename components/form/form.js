@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
     
     import template from "./form.pug";

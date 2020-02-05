@@ -136,6 +136,7 @@
 
 
         addItem(item) {
+            // eslint-disable-next-line no-undef
             let el = document.createElement("div");            
             el.innerHTML = this.liItemHtml(item, this.data.items.length);
             el = el.firstElementChild;

@@ -1,8 +1,8 @@
-
     'use strict';
 
     import {Menu} from "./../menu/menu";
     import {Form} from "./../form/form";
+    import {LinksService} from "./../services/links.service";
 
 
 
@@ -16,9 +16,6 @@
 
        
     
-            this.loadData();
-     
-        //menu.setData(data);
 
             
             let form = new Form ({
@@ -34,8 +31,17 @@
 
             form.addEventListener("save", (event) => {
                 this.menu.addItem(event.detail);
-                this.uploadData();
-            })       
+                
+                LinksService.putLinks(this.menu.data, (data) => {
+                    this.menu.setData(data);
+                });
+            });
+
+                LinksService.getLinks((LinksData) => {
+                    this.menu.setData(LinksData);
+                });
+                
+                 
 
             
 
@@ -43,54 +49,12 @@
 
 
         
-            /** 
-             * Load Data from server
-            */
-
-           loadData() {
-            const url = 'https://components-2130.firebaseio.com/menu/-M-Bg4b7mtRo6BO8FiSA.json';
-            
-            const xhr = new XMLHttpRequest();
-
-            
-
-            xhr.addEventListener("readystatechange", (event) => {
-                if (xhr.readyState === 4) {
-                    if (xhr.status !== 200) {
-                        console.error('Сетевая ошибка', xhr);
-                    } else {
-                        const resp = xhr.responseText;
-                        this.menu.setData(JSON.parse(resp));
-                    }
-
-                }
-               
-            });
-
-            xhr.open('GET', url, true);
-            xhr.send();
-        }
-
-        /**
-         * Upload data to server
-         */
-
-
-         uploadData () {
-             const url = 'https://components-2130.firebaseio.com/menu/-M-Bg4b7mtRo6BO8FiSA.json';
-             const xhr = new XMLHttpRequest();
-
-             xhr.open('PUT', url, true);
-             xhr.onload = (event) => {
-                 console.log('DONE');
-             };
-
-             xhr.send(JSON.stringify(this.menu.data));
-         }
+          
     }
 
 
 window.App = App;
+
 
 
 
