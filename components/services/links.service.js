@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const BASE_URL = 'https://components-2130.firebaseio.com/menu/-M-Bg4b7mtRo6BO8FiSA.json';
+const BASE_URL = 'https://components-2130.firebaseio.com/menu/-M-buribBxTNSjv-sJkM/-M-buYH2BkaQ_DE7FhuD.json';
 
 /** 
  * Data source for links collection
